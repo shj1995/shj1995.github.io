@@ -122,8 +122,8 @@ footer:
 
   beian:  # The footer of China's website policy, other areas keep disable
     enable: true
-    icp_text: 京ICP证123456号 # ICP证号
-    police_text: 京公网安备12345678号 # 公安备案号，不填则只显示ICP
+    icp_text: 豫ICP备17020028号-2	 # ICP证号
+    police_text: 豫ICP备17020028号-2	 # 公安备案号，不填则只显示ICP
     police_code: 12345678 # 公安备案的编号，用于URL跳转查询
     police_icon: /img/police_beian.png # 公安备案的图片. 为空时不显示备案图片
 
@@ -163,7 +163,7 @@ page:
 #---------------------------
 post:
   banner_img: /img/default.png
-  banner_img_height: 70  # available: 0 - 100
+  banner_img_height: 50  # available: 0 - 100
   meta:  # 文章标题下方的信息
     date:  # 文章日期
       enable: true
@@ -282,7 +282,7 @@ livere:
 #---------------------------
 archive:
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 50  # available: 0 - 100
   subtitle:  # 打字机内容
 
 #---------------------------
@@ -291,7 +291,7 @@ archive:
 #---------------------------
 category:
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 50  # available: 0 - 100
   subtitle:  # 打字机内容
 
 #---------------------------
@@ -300,7 +300,7 @@ category:
 #---------------------------
 tag:
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 50  # available: 0 - 100
   subtitle:  # 打字机内容
   tagcloud: # 标签云
     min_font: 15
@@ -316,15 +316,15 @@ tag:
 #---------------------------
 about:  # 以下仅为页面顶部的基本信息，更多内容请在 ./pages/about.md 中编辑，支持 markdown 和 HTML
   banner_img: /img/default.png
-  banner_img_height: 80  # available: 0 - 100
+  banner_img_height: 50  # available: 0 - 100
   subtitle:  # 打字机内容
   avatar: /img/avatar.png # 头像
   name: 石豪杰
-  introduce: info / info / info # 支持 HTML
+  introduce: 后端开发小学生 / java # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/v5.10.0/icons?d=gallery 查找，并以 "图标名: url" 的格式添加在下方
-    "fab fa-github": https://github.com
-    "fab fa-twitter": https://twitter.com
-    "fab fa-weixin qrcode":  # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，因此值需要是二维码图片地址
+    "fab fa-github": https://github.com/shj1995
+    # "fab fa-twitter": https://twitter.com
+    "fab fa-weixin qrcode": /img/avatar.png # 添加 qrcode 后，点击不再跳转，而是悬浮二维码，因此值需要是二维码图片地址
 
 
 #---------------------------
