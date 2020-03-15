@@ -168,6 +168,9 @@
         <div class="py-5 z-depth-3" id="board">
           <div class="post-content mx-auto" id="post">
             
+              <p
+                class="note note-warning">本文最后更新于：星期日, 三月 15日 2020, 9:14 晚上</p>
+            
             <div class="markdown-body">
               <h2 id="什么是算法？"><a href="#什么是算法？" class="headerlink" title="什么是算法？"></a>什么是算法？</h2><blockquote>
 <p>“算法是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作。”<br>——摘录来自: 程杰. “大话数据结构。”</p>
@@ -357,16 +360,31 @@
               <div class="comments" id="comments">
                 
                 
-  <script defer src="https://utteranc.es/client.js"
-          repo="shj1995/shj1995.github.io"
-          issue-term="pathname"
-  
-          label="utterances"
-    
-          theme="github-light"
-          crossorigin="anonymous"
-  >
+  <div id="vcomments"></div>
+  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script type="text/javascript">
+    var notify = 'false' === 'true';
+    var verify = 'false' === 'true';
+    var oldLoad = window.onload;
+    window.onload = function () {
+      new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        app_id: "M88ogTGSCEywqKb6BWyQau6U-gzGzoHsz",
+        app_key: "EvNPfP6xKdrR1A12BupJQlGh",
+        placeholder: "说点什么",
+        avatar: "/retro",
+        meta: ['nick', 'mail', 'link'],
+        pageSize: "10",
+      });
+      oldLoad && oldLoad();
+    };
   </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
 
 
               </div>
