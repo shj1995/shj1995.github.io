@@ -3,6 +3,8 @@ title: 使用hexo+github pages搭建个人博客
 date: 2020-03-11 18:10:18
 tags:
 categories: hexo
+abbrlink: 8ddf18fv
+layout: false
 ---
 # 准备环境
 1. github账号
