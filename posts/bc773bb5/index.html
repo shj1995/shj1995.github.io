@@ -177,7 +177,7 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期六, 三月 21日 2020, 3:43 下午</p>
+                class="note note-warning">本文最后更新于：星期六, 三月 21日 2020, 4:06 下午</p>
             
             <div class="markdown-body">
               <p>说到java把list转tree，网上有一大堆文章，但是我看过之后发现基本都只说了递归和两层嵌套循环两种方法，没人提到两次遍历的方法，我今天就把三种方法都实现以下，做一下对比</p>
@@ -320,6 +320,13 @@ public static void setChildren(List&lt;Zone&gt; list, Zone parent) {
             .filter(v -&gt; v.parentId.equals(&quot;0&quot;))
             .collect(Collectors.toList());
 }</code></pre>
+<p>用java8的stream，三行代码实现，Zone里面需要配合增加一个getParentId方法</p>
+<pre><code class="java">public static List&lt;Zone&gt; buildTree3(List&lt;Zone&gt; zoneList) {
+    Map&lt;String, List&lt;Zone&gt;&gt; zoneByParentIdMap = zoneList.stream().collect(Collectors.groupingBy(Zone::getParentId));
+    zoneList.forEach(zone-&gt;zone.children = zoneByParentIdMap.get(zone.id));
+    return zoneList.stream().filter(v -&gt; v.parentId.equals(&quot;0&quot;)).collect(Collectors.toList());
+}
+</code></pre>
 <h1 id="三种方法对比"><a href="#三种方法对比" class="headerlink" title="三种方法对比"></a>三种方法对比</h1><p>前两种方法的时间复杂度都和叶子节点的个数相关，我们假设叶子节点个数为m<br><strong>方法一:</strong> 用递归的方法，时间复杂度等于：O(n +（n-m）* n)，根据<strong>初始算法</strong>那篇文章的计算时间复杂度的方法，可以得到最终时间复杂度是O(n<sup>2</sup>)<br><strong>方法二:</strong> 用两层嵌套循环的方法，时间复杂度等于：O(n +（n-m）* n)，和方法一的时间复杂度是一样的，最终时间复杂度是O(n<sup>2</sup>)<br><strong>方法三:</strong> 用两次遍历的方法，时间复杂度等于：O(3n)，根据<strong>初始算法</strong>那篇文章的计算时间复杂度的方法，可以得到最终时间复杂度是O(n)，但它的空间复杂度比前两种方法稍微大了一点，但是也是线性阶的，所以影响不是特别大。所以第三种方法是个人觉得比较优的一种方法</p>
 <table>
 <thead>
