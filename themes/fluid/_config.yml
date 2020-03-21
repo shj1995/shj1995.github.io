@@ -155,7 +155,7 @@ index:
 # Custom Page
 page:
   banner_img: /img/default.png
-  banner_img_height: 70  # available: 0 - 100
+  banner_img_height: 50  # available: 0 - 100
 
 #---------------------------
 # 文章页
