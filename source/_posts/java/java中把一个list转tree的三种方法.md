@@ -164,7 +164,7 @@ public static List<Zone> buildTree3(List<Zone> zoneList) {
             .collect(Collectors.toList());
 }
 ```
-用java8的stream，三行代码实现。
+用java8的stream，三行代码实现，Zone里面需要配合增加一个getParentId方法
 ``` java
 public static List<Zone> buildTree3(List<Zone> zoneList) {
     Map<String, List<Zone>> zoneByParentIdMap = zoneList.stream().collect(Collectors.groupingBy(Zone::getParentId));
