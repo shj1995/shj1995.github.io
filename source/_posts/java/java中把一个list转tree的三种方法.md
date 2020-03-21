@@ -164,6 +164,15 @@ public static List<Zone> buildTree3(List<Zone> zoneList) {
             .collect(Collectors.toList());
 }
 ```
+用java8的stream，三行代码实现。
+``` java
+public static List<Zone> buildTree3(List<Zone> zoneList) {
+    Map<String, List<Zone>> zoneByParentIdMap = zoneList.stream().collect(Collectors.groupingBy(Zone::getParentId));
+    zoneList.forEach(zone->zone.children = zoneByParentIdMap.get(zone.id));
+    return zoneList.stream().filter(v -> v.parentId.equals("0")).collect(Collectors.toList());
+}
+
+```
 # 三种方法对比
 前两种方法的时间复杂度都和叶子节点的个数相关，我们假设叶子节点个数为m
 **方法一:** 用递归的方法，时间复杂度等于：O(n +（n-m）* n)，根据**初始算法**那篇文章的计算时间复杂度的方法，可以得到最终时间复杂度是O(n<sup>2</sup>)
