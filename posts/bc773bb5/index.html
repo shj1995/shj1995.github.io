@@ -177,7 +177,7 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期六, 三月 21日 2020, 2:34 下午</p>
+                class="note note-warning">本文最后更新于：星期六, 三月 21日 2020, 2:43 下午</p>
             
             <div class="markdown-body">
               <p>说到java把list转tree，网上有一大堆文章，但是我看过之后发现基本都只说了递归和两层嵌套循环两种方法，没人提到两次遍历的方法，我今天就把三种方法都实现以下，做一下对比</p>
@@ -342,13 +342,13 @@ public static void setChildren(List&lt;Zone&gt; list, Zone parent) {
 <td>一般</td>
 </tr>
 <tr>
-<td>方法1</td>
+<td>方法2</td>
 <td>O(n +（n-m）* n)</td>
 <td>指性阶,O(n<sup>2</sup>)</td>
 <td>良好</td>
 </tr>
 <tr>
-<td>方法1</td>
+<td>方法3</td>
 <td>O(3n)</td>
 <td>线性阶,O(n</td>
 <td>复杂</td>
