@@ -178,5 +178,5 @@ public static List<Zone> buildTree3(List<Zone> zoneList) {
 |-|代码执行次数|时间复杂度|代码简洁程度|
 |-|-|-|-|
 |方法1|O(n +（n-m）* n)|指性阶,O(n<sup>2</sup>) |一般|
-|方法1|O(n +（n-m）* n)|指性阶,O(n<sup>2</sup>) |良好|
-|方法1|O(3n)|线性阶,O(n|复杂|
+|方法2|O(n +（n-m）* n)|指性阶,O(n<sup>2</sup>) |良好|
+|方法3|O(3n)|线性阶,O(n|复杂|
