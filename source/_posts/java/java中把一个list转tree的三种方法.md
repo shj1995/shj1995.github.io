@@ -153,18 +153,13 @@ public static List<Zone> buildTree2(List<Zone> zoneList) {
 ``` java
 public static List<Zone> buildTree3(List<Zone> zoneList) {
     Map<String, List<Zone>> zoneByParentIdMap = new HashMap<>();
-    Map<String, Zone> zoneByIdMap = new HashMap<>();
     zoneList.forEach(zone -> {
-        zoneByIdMap.put(zone.id, zone);
-        List<Zone> children = zoneByParentIdMap.getOrDefault(zone.parentId, new ArrayList<Zone>());
+        List<Zone> children = zoneByParentIdMap.getOrDefault(zone.parentId, new ArrayList<>());
         children.add(zone);
         zoneByParentIdMap.put(zone.parentId, children);
     });
-    zoneByParentIdMap.forEach((key, value) -> {
-        Zone zone = zoneByIdMap.get(key);
-        if (zone != null) zone.children = value;
-    });
-    return zoneByIdMap.values().stream()
+    zoneList.forEach(zone->zone.children = zoneByParentIdMap.get(zone.id));
+    return zoneList.stream()
             .filter(v -> v.parentId.equals("0"))
             .collect(Collectors.toList());
 }
