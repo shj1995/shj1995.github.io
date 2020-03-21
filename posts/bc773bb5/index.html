@@ -177,7 +177,7 @@
           <div class="post-content mx-auto" id="post">
             
               <p
-                class="note note-warning">本文最后更新于：星期六, 三月 21日 2020, 2:43 下午</p>
+                class="note note-warning">本文最后更新于：星期六, 三月 21日 2020, 3:43 下午</p>
             
             <div class="markdown-body">
               <p>说到java把list转tree，网上有一大堆文章，但是我看过之后发现基本都只说了递归和两层嵌套循环两种方法，没人提到两次遍历的方法，我今天就把三种方法都实现以下，做一下对比</p>
@@ -310,18 +310,13 @@ public static void setChildren(List&lt;Zone&gt; list, Zone parent) {
 }</code></pre>
 <h1 id="第三种方法：两次遍历"><a href="#第三种方法：两次遍历" class="headerlink" title="第三种方法：两次遍历"></a>第三种方法：两次遍历</h1><pre><code class="java">public static List&lt;Zone&gt; buildTree3(List&lt;Zone&gt; zoneList) {
     Map&lt;String, List&lt;Zone&gt;&gt; zoneByParentIdMap = new HashMap&lt;&gt;();
-    Map&lt;String, Zone&gt; zoneByIdMap = new HashMap&lt;&gt;();
     zoneList.forEach(zone -&gt; {
-        zoneByIdMap.put(zone.id, zone);
-        List&lt;Zone&gt; children = zoneByParentIdMap.getOrDefault(zone.parentId, new ArrayList&lt;Zone&gt;());
+        List&lt;Zone&gt; children = zoneByParentIdMap.getOrDefault(zone.parentId, new ArrayList&lt;&gt;());
         children.add(zone);
         zoneByParentIdMap.put(zone.parentId, children);
     });
-    zoneByParentIdMap.forEach((key, value) -&gt; {
-        Zone zone = zoneByIdMap.get(key);
-        if (zone != null) zone.children = value;
-    });
-    return zoneByIdMap.values().stream()
+    zoneList.forEach(zone-&gt;zone.children = zoneByParentIdMap.get(zone.id));
+    return zoneList.stream()
             .filter(v -&gt; v.parentId.equals(&quot;0&quot;))
             .collect(Collectors.toList());
 }</code></pre>
